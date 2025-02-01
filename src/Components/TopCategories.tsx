@@ -24,7 +24,6 @@ const getCategories = async () => {
 
     `
   );
-  console.log("Fetched Categories:", categories); // Debugging
   return categories;
 };
 

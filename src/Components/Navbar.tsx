@@ -8,7 +8,6 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "Shop", href: "/products-page" },
   { name: "Product", href: "/cart" },
-  { name: "Pages", href: "/single-product-page" },
   { name: "About", href: "/about-us" },
 ];
 const Navbar = () => {
