@@ -4,7 +4,7 @@ import { client } from "@/sanity/lib/client";
 import Link from "next/link";
 
 interface Product {
-  _id: string;
+  id: string;
   title: string;
   description: string;
   price: number;
@@ -46,7 +46,7 @@ const ProductsPage = async () => {
               <div key={index} className="flex flex-col w-[23%] max-md:w-full max-md:ml-0">
                 {/* Product Card */}
                 <div className="relative flex flex-col items-start px-5 pt-5 pb-64 w-full text-sm font-medium leading-none text-white capitalize whitespace-nowrap rounded-md aspect-square max-md:pb-24 max-md:mt-6">
-                  <Link href={`Product/${products.id}`}>
+                  <Link href={`Product/${product.id}`}>
                   <Image
                     src={product.imageUrl || "/i1.png"}
                     alt={product.title || "Product Image"}

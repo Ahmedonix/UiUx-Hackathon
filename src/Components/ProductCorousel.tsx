@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 
   interface Product {
-    _id: string;
+    id: string;
     title: string;
     description: string;
     price: number;
@@ -50,12 +50,12 @@ const ProductCorousel = async () => {
       {/* Product Cards */}
       {products.map((product: Product, index: number) => (
         <div
-          key={index}
+          key={product.id}
           className="flex flex-col w-[30%] max-md:w-full gap-4 max-md:gap-6"
         >
           {/* Image */}
           <div className="relative pb-2 w-full rounded-md aspect-square">
-            <Link href={`/Product/${products.id}`}>
+            <Link href={`/Product/${product.id}`}>
             <Image
               src={product.imageUrl}
               alt={product.title}
