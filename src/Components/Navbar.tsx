@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
+import { useCart } from '@/context/CartContext';
+
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -11,6 +13,7 @@ const navLinks = [
 ];
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { cart } = useCart();
   return (
     <div className="flex flex-col bg-white">
       {/* Top Bar */}
@@ -75,7 +78,7 @@ const Navbar = () => {
         <span>Cart</span>
       </div>
       <div className="w-5 h-5 bg-[#007580] text-white text-xs rounded-full flex justify-center items-center">
-        2 {/* Show cart item count */}
+        {cart.length} {/* Show cart item count */}
       </div>
     </div>
     </Link>

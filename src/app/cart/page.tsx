@@ -45,7 +45,7 @@ import { useCart } from '@/context/CartContext';
                         {item.title}
                       </div>
                       <div className="overflow-hidden pr-16 text-base leading-7 max-md:pr-5">
-                        The one in the Picture
+                        
                       </div>
                       <div className="flex items-start pr-5 whitespace-nowrap max-md:justify-center">
                         <div className="flex items-start gap-2 max-md:flex-col max-md:items-center">
