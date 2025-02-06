@@ -7,12 +7,10 @@ import React, { useState } from "react";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Shop", href: "/products-page" },
-  { name: "Product", href: "/cart" },
   { name: "About", href: "/about-us" },
 ];
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <div className="flex flex-col bg-white">
       {/* Top Bar */}
@@ -70,21 +68,17 @@ const Navbar = () => {
             />
             <span>Comforty</span>
           </div>
+          <Link href={"/cart"}>
           <div className="flex items-center gap-3 px-4 py-3 bg-white rounded-lg">
-            <div className="flex items-center gap-2 text-xs text-slate-800">
-              <Image
-                src="/cart.png"
-                alt="Shopping cart icon"
-                className="object-contain w-6"
-                width={24}
-                height={24}
-              />
-              <span>Cart</span>
-            </div>
-            <div className="w-5 h-5 bg-[#007580] text-white text-xs rounded-full flex justify-center items-center">
-              2
-            </div>
-          </div>
+      <div className="flex items-center gap-2 text-xs text-slate-800">
+        <Image src="/cart.png" alt="Shopping cart icon" width={24} height={24} />
+        <span>Cart</span>
+      </div>
+      <div className="w-5 h-5 bg-[#007580] text-white text-xs rounded-full flex justify-center items-center">
+        2 {/* Show cart item count */}
+      </div>
+    </div>
+    </Link>
           <button
             className="md:hidden text-gray-700 focus:outline-none"
             onClick={() => setMenuOpen(!menuOpen)}

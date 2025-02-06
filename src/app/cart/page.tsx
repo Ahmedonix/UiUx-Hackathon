@@ -1,29 +1,22 @@
+"use client"
+
 import React from 'react'
 import Image from 'next/image'
+import { useCart } from '@/context/CartContext';
 
-const cartItems = [
-    {
-      imageSrc: "/i1.png",
-      title: "Library Stool Chair",
-      color: "Ashen Slate/Cobalt Bliss",
-      size: "L",
-      quantity: 1,
-      price: 99
-    },
-    {
-      imageSrc: "/i5.png",
-      title: "Library Stool Chair",
-      color: "Ashen Slate/Cobalt Bliss",
-      size: "L",
-      quantity: 1,
-      price: 99
-    }
-  ];
 
   const Cart = () => {
-    const subtotal = cartItems.reduce((sum, item) => sum + item.price, 0);
+    const { cart } = useCart();
+    const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
     const shipping = "Free";
     const total = subtotal;
+
+    if(cart.length === 0){
+      <div>
+        <h1>Your Cart Is Empty</h1>
+      </div>
+    }
+    console.log(cart)
   
     return (
 <div>
@@ -34,7 +27,7 @@ const cartItems = [
         <div className="self-start text-2xl font-medium text-neutral-900 mb-4 max-md:text-center">
           Bag
         </div>
-        {cartItems.map((item, index) => (
+        {cart.map((item, index) => (
           <div key={index} className="flex flex-col w-full max-md:w-full mb-6">
             <div className="flex items-start py-6 bg-white bg-opacity-0 max-md:flex-col max-md:items-center">
               <div className="flex flex-wrap gap-8 items-start w-full max-md:flex-col max-md:items-center">
@@ -52,13 +45,13 @@ const cartItems = [
                         {item.title}
                       </div>
                       <div className="overflow-hidden pr-16 text-base leading-7 max-md:pr-5">
-                        {item.color}
+                        The one in the Picture
                       </div>
                       <div className="flex items-start pr-5 whitespace-nowrap max-md:justify-center">
                         <div className="flex items-start gap-2 max-md:flex-col max-md:items-center">
                           <div className="text-base leading-7">Size</div>
                           <div className="overflow-hidden px-2.5 py-1.5 text-sm bg-white w-[67px] max-md:pr-5">
-                            {item.size}
+                            L
                           </div>
                         </div>
                         <div className="flex items-start gap-2 max-md:flex-col max-md:items-center">
