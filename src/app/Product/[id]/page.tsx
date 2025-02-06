@@ -13,7 +13,7 @@ export interface Details {
   description: string;
 }
 
-export function items(details: Details) {
+function items(details: Details) {
   return {
     id: details.id,
     title: details.title,
